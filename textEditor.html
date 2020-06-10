@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Text Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="textEditor.css" />
+  </head>
+<body>
+  <div id="container" >
+    <fieldset>
+      <button class="fontStyle italic" name = "italic" onclick="format(name)" title="Italicize Highlighted Text"></button>
+
+      <button class="fontStyle bold" name = "bold" onclick="format(name)" title="Bold Highlighted Text"></button>
+
+      <button class="fontStyle underline" name = "underline" onclick="format(name)"></button>
+
+      <select id="input-font" class="input"  onchange="changeFont(this);">
+        <option value="Arial">Arial</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Sans serif">Sans serif</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Palatino">Palatino</option>
+        <option value="Garamond">Garamond</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+        <option value="Arial Black">Arial Black</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+      </select>
+
+      <button class="fontStyle strikethrough" name = "strikethrough" onclick="format(name)"><strikethrough></strikethrough></button>
+
+      <button class="fontStyle align-left" name = "justifyLeft" onclick="format(name)"><justifyLeft></justifyLeft></button>
+
+      <button class="fontStyle align-center" name = "justifyCenter" onclick="format(name)"><justifyCenter></justifyCenter></button>
+
+      <button class="fontStyle align-right" name = "justifyRight" onclick="format(name)"><justifyRight></justifyRight></button>
+
+      <button class="fontStyle redo-apply" name = "redo" onclick="format(name)"><redo></redo></button>
+
+      <button class="fontStyle undo-apply" name = "undo" onclick="format(name)"><undo></undo></button>
+
+      <button class="fontStyle orderedlist"  name = "insertOrderedList" onclick="format(name)"><insertOrderedList></insertOrderedList></button>
+
+      <button class="fontStyle unorderedlist"  name = "insertUnorderedList" onclick="format(name)"><insertUnorderedList></insertUnorderedList></button>  
+
+      Font Color:
+      <input class="color-apply" name = "foreColor" type="color" onchange="chooseColor(name)" id="myColor"> 
+
+      Highlight:
+      <input class="color-apply" name = "hiliteColor" type="color" onchange="chooseColor(name)" id="myColor"> 
+
+      Font Size:
+      <select id="fontSize" onclick="changeSize()">	
+        <option value="1">1</option>      
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+
+</fieldset>
+
+<div id="editor" contenteditable="true" data-text="Enter comment...." > </div>
+
+</div>
+
+<button type="button" class ="save" value = "save" onclick="saveTextAsFile()">Click to Save</button>
+
+</body>
+</html>
+
+  <script src="textEditor.js"></script>
+</html>

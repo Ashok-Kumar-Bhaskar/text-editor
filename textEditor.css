@@ -1,0 +1,130 @@
+
+
+#container #containerHeader
+{
+    text-align: center;
+    cursor:move;
+}
+
+#container #editor 
+{
+    border: 2px solid grey;
+    height: 70%;
+    width: 80%;
+    margin: 0px auto 0;
+    padding:10px;
+    overflow: scroll;
+}
+
+#container fieldset 
+{
+    margin: 2px auto 20px;
+    width: 80%;
+    height:30px;
+    background-color: #f2f2f2;
+    border: solid black 2px;
+}
+
+#container button 
+{
+    text-align: center;
+    padding: 5px 5px 8px 5px;
+    height:30px;
+    width:30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid black 1px;
+
+}
+
+.save
+{
+  margin-top: 2%;
+  margin-left: 45%;
+
+}
+
+#container .bold
+{
+  background-image: url("bold.png");
+}
+
+#container .italic
+{
+    background-image: url("italics.png")
+}
+
+#container .underline
+{
+    background-image: url("underline.png")
+}
+
+#container .align-left
+{
+    background-image : url("leftalign.png");
+    width:40px;
+}
+
+
+#container .align-right
+{
+    background-image:url("rightalign.png");
+    width:40px;
+}
+#container .align-center
+{
+    width: 38px;
+    background-size: contain;
+    background-image:url("justify.png");
+}
+
+#container .redo-apply
+{
+    background-image: url("redo.png")
+}
+
+#container .undo-apply
+{
+    background-image: url("undo.png")
+}
+
+#container .unorderedlist
+{
+    background-image: url("unordered list.png")
+}
+
+#container .orderedlist
+{
+    background-image: url("ordered list.png")
+}
+
+#container .strikethrough
+{
+    background-image: url("strikethrough.png")
+}
+
+#container .color-apply
+{
+    width: 50px;
+}
+
+#input-font
+{
+
+    width: 100px;
+    height: 25px;
+}
+
+#container #fontSize
+{
+    height: 25px;
+}
+
+[contentEditable=true]:empty:not(:focus):before
+{
+    content:attr(data-text);
+    color:#888;
+}
+
+
+
