@@ -35,8 +35,7 @@ function saveTextAsFile()
   var text = document.getElementById('editor').innerHTML;
   var finalText = convertHtmlToRtf(text)
   var fileName = "file.rtf";
-  sessionStorage.setItem("text",finalText);
-
+  sessionStorage.setItem("finalText",finalText);
 
   var downloadLink = document.createElement("a");
   var file = new File([finalText], fileName ,{type: "text/plain;charset:UTF-8"});
@@ -48,29 +47,24 @@ function saveTextAsFile()
 
 
 function convertHtmlToRtf(html) {
-  if (!(typeof html === "string" && html)) {
+  if (!(typeof html === "string" && html)) 
+  {
       return null;
   }
 
   var tmpRichText, hasHyperlinks;
   var richText = html;
 
-  // Singleton tags
   richText = richText.replace(/<(?:hr)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard \\brdrb \\brdrs \\brdrw10 \\brsp20 \\par}\n{\\pard\\par}\n");
   richText = richText.replace(/<(?:br)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard\\par}\n");
 
-  // Empty tags
   richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?\s*[\/]>/ig, "{\\pard\\par}\n");
   richText = richText.replace(/<(?:[^>]+)\/>/g, "");
 
 
-  richText = richText.replace(
-      /<a(?:\s+[^>]*)?(?:\s+href=(["'])(?:javascript:void\(0?\);?|#|return false;?|void\(0?\);?|)\1)(?:\s+[^>]*)?>/ig,
-      "{{{\n");
+  richText = richText.replace(/<a(?:\s+[^>]*)?(?:\s+href=(["'])(?:javascript:void\(0?\);?|#|return false;?|void\(0?\);?|)\1)(?:\s+[^>]*)?>/ig,"{{{\n");
   tmpRichText = richText;
-  richText = richText.replace(
-      /<a(?:\s+[^>]*)?(?:\s+href=(["'])(.+)\1)(?:\s+[^>]*)?>/ig,
-      "{\\field{\\*\\fldinst{HYPERLINK\n \"$2\"\n}}{\\fldrslt{\\ul\\cf1\n");
+  richText = richText.replace(/<a(?:\s+[^>]*)?(?:\s+href=(["'])(.+)\1)(?:\s+[^>]*)?>/ig,"{\\field{\\*\\fldinst{HYPERLINK\n \"$2\"\n}}{\\fldrslt{\\ul\\cf1\n");
   hasHyperlinks = richText !== tmpRichText;
   richText = richText.replace(/<a(?:\s+[^>]*)?>/ig, "{{{\n");
   richText = richText.replace(/<\/a(?:\s+[^>]*)?>/ig, "\n}}}");
@@ -124,8 +118,7 @@ function convertHtmlToRtf(html) {
 
   richText = richText.replace(/<!--[\s\S]*?-->/ig,"");
 
-  richText =
-      "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +  "\n}";
+  richText ="{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +  "\n}";
 
   return richText;
 }

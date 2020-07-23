@@ -1,13 +1,13 @@
 <html>
-  <head>
+<head>
     <title>Text Editor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="textEditor.css" />
-  </head>
+</head>
+
 <body>
-	
-<div class="navbar">
-  <div class="dropdown">
+	<div class="navbar">
+  	<div class="dropdown">
     <button class="dropbtn">File
       <i class="fa fa-caret-down"></i>
     </button>
@@ -15,7 +15,7 @@
       <a onclick="location.reload()">New File</a>
       <a onclick="saveTextAsFile()">Save</a>
     </div>
-  </div> 
+  	</div> 
     <div class="dropdown">
     <button class="dropbtn">Edit
       <i class="fa fa-caret-down"></i>
@@ -24,11 +24,10 @@
       <a onclick=format("undo")>Undo</a>
       <a onclick=format("redo")>Redo</a>
     </div>
-  </div> 
+  	</div> 
+	</div>
 
-</div>
-
-  <div id="container" >
+  	<div id="container" >
     <fieldset>
       <button class="fontStyle italic" name = "italic" onclick="format(name)" title="Italicize Highlighted Text"></button>
 
@@ -108,18 +107,11 @@
 
 	  <button class="fontStyle subscript" title="Sub Script" name = "subscript" onclick="format(name)"></button>
 	  <button class="fontStyle superscript" title="Super Script" name = "superscript" onclick="format(name)"></button>
+	</fieldset>
 
-
-</fieldset>
-
-<div id="editor" contenteditable="true" data-text="Enter comment...." class="text" ><div></div> </div>
-
-</div>
-
-
+	<div id="editor" contenteditable="true" data-text="Enter comment...." class="text" ><div></div></div>
+	</div>
+	<script src="textEditor.js"></script>
 
 </body>
-</html>
-
-  <script src="textEditor.js"></script>
 </html>
